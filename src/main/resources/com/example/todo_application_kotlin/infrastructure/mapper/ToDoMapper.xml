@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.todo_application_kotlin.infrastructure.mapper.ToDoMapper">
+    <resultMap id="Base_Result_Map" type="com.example.todo_application_kotlin.domain.entity.ToDo">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="done" property="done" jdbcType="INTEGER"/>
+        <result column="tododate" property="tododate" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="findById" parameterType="long" resultMap="Base_Result_Map">
+        select id, title, done, limitDate
+        from todo
+        where id = #{id}
+    </select>
+
+    <select id="findAll" resultMap="Base_Result_Map">
+        select id, title, done, limitDate
+        from todo
+    </select>
+
+    <insert id="register" parameterType="com.example.todo_application_kotlin.domain.form.ToDoForm" useGeneratedKeys="true">
+        insert into todo (title, done, limitDate)
+        values (#{title}, #{done}, #{limitDate})
+    </insert>
+
+    <update id="edit" parameterType="com.example.todo_application_kotlin.domain.entity.ToDo">
+        update todo
+        <set>
+            title = #{title},
+            done = #{done},
+            limitDate = #{limitDate},
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="remove" parameterType="Long">
+        delete from todo
+        where id = #{id}
+    </delete>
+</mapper>
