@@ -1,15 +1,13 @@
-package com.example.todo_application_kotlin.application.service
+package com.example.todo_application_kotlin.domain.service
 
 import com.example.todo_application_kotlin.domain.dto.ToDoDto
 import com.example.todo_application_kotlin.domain.entity.ToDo
 import com.example.todo_application_kotlin.domain.form.ToDoForm
 import com.example.todo_application_kotlin.infrastructure.mapper.ToDoMapper
-import com.example.todo_application_kotlin.presentation.ToDoController
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import kotlin.math.log
 
 @Service
 @Transactional
