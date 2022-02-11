@@ -11,7 +11,7 @@ import javax.persistence.Entity
 data class ToDo (
         @Id
         @Column(name = "id")
-        var id: Long,
+        var todo_id: Long,
         @Column(name="name")
         var title: String,
         @Column(name="done")

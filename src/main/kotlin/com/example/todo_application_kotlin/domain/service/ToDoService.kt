@@ -44,6 +44,6 @@ class ToDoService @Autowired constructor(private val todoMapper: ToDoMapper){
     }
 
     private fun convertToToDo(todo: ToDo): ToDoDto {
-        return ToDoDto(todo.id, todo.title, todo.done, todo.limitDate)
+        return ToDoDto(todo.todo_id, todo.title, todo.done, todo.limitDate)
     }
 }

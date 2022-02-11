@@ -2,20 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.todo_application_kotlin.infrastructure.mapper.ToDoMapper">
     <resultMap id="Base_Result_Map" type="com.example.todo_application_kotlin.domain.entity.ToDo">
-        <id column="id" property="id" jdbcType="INTEGER"/>
+        <id column="todo_id" property="todo_id" jdbcType="INTEGER"/>
         <result column="title" property="title" jdbcType="VARCHAR"/>
         <result column="done" property="done" jdbcType="INTEGER"/>
         <result column="tododate" property="tododate" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <select id="findById" parameterType="long" resultMap="Base_Result_Map">
-        select id, title, done, limitDate
+        select todo_id, title, done, limitDate
         from todo
-        where id = #{id}
+        where todo_id = #{id}
     </select>
 
     <select id="findAll" resultMap="Base_Result_Map">
-        select id, title, done, limitDate
+        select todo_id, title, done, limitDate
         from todo
     </select>
 
@@ -31,11 +31,11 @@
             done = #{done},
             limitDate = #{limitDate},
         </set>
-        where id = #{id}
+        where todo_id = #{id}
     </update>
 
     <delete id="remove" parameterType="Long">
         delete from todo
-        where id = #{id}
+        where todo_id = #{id}
     </delete>
 </mapper>
