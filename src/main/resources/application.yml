@@ -4,6 +4,7 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-    initialization-mode: never
+    initialization-mode: always
     schema: classpath:database/schema.sql
+    data: classpath:database/data.sql
     sql-script-encoding: utf-8
