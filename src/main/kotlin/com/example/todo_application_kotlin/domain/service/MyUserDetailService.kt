@@ -10,7 +10,6 @@ open class MyUserDetailsService @Autowired constructor(private val userMapper: U
 
     @Throws(UsernameNotFoundException::class)
     override fun loadUserByUsername(username: String): UserDetails? {
-        println(userMapper.findByEmail(username))
         return userMapper.findByEmail(username)
     }
 
